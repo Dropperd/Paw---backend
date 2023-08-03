@@ -1,0 +1,13 @@
+stages:
+  - test
+  - deploy
+
+deploy:
+  stage: deploy
+  image: golang:latest
+  script:
+    - go build -o myapp
+    - ./myapp
+  environment:
+    name: backend
+    url: https://backend.goiberian.xyz
